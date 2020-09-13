@@ -1,0 +1,29 @@
+body {
+	background-color: #d8bfd8;
+}
+
+.table-game {
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.cell {
+	width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  background: gray;
+  border-radius: 5%;
+}
+
+.active_cell {
+	background-image: url(../img/goblin.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #54106e;
+}
