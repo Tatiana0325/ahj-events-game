@@ -26,4 +26,5 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   background-color: #54106e;
+  cursor: url(../img/molot.png) 2 2, pointer;
 }
