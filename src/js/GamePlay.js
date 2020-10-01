@@ -4,6 +4,9 @@ export default class GamePlay {
   constructor() {
     this.container = null;
     this.borderSize = 4;
+    this.click = false;
+    this.result = 0;
+    this.losing = 0;
   }
 
   bindToDOM(container) {
@@ -33,32 +36,39 @@ export default class GamePlay {
       if (index != beforeindex) {
         arrayCell[beforeindex].classList.remove("active_cell");
         arrayCell[index].classList.add("active_cell");
+
         beforeindex = index;
+
+        if (!this.click) {
+          this.losing++;
+        }
+
+        console.log(this.losing);
+        console.log(this.result);
+
+        if (this.result === 5) {
+          alert("Вы выиграли!!!");
+          this.result = 0;
+          this.losing = 0;
+        }
+
+        if (this.losing === 5) {
+          alert("Вы проиграли!!!");
+          this.result = 0;
+          this.losing = 0;
+        }
       }
     }, 1000);
   }
 
   game() {
-    let result = 0;
-    let losing = 0;
-
     this.container.addEventListener("click", (event) => {
+      this.click = true;
+
       if (event.target.classList.contains("active_cell")) {
-        result++;
+        this.result++;
       } else {
-        losing++;
-      }
-
-      if (losing === 5) {
-        alert("Вы проиграли!!!");
-        result = 0;
-        losing = 0;
-      }
-
-      if (result === 5) {
-        alert("Вы выиграли!!!");
-        result = 0;
-        losing = 0;
+        this.losing++;
       }
     });
   }
