@@ -43,9 +43,6 @@ export default class GamePlay {
           this.losing++;
         }
 
-        console.log(this.losing);
-        console.log(this.result);
-
         if (this.result === 5) {
           alert("Вы выиграли!!!");
           this.result = 0;
