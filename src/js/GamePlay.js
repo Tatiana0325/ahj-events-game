@@ -64,10 +64,8 @@ export default class GamePlay {
 
       if (event.target.classList.contains("active_cell")) {
         this.result++;
-        this.click = false;
       } else {
         this.losing++;
-        this.click = false;
       }
     });
   }
