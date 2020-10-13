@@ -39,15 +39,7 @@ export default class GamePlay {
 
         beforeindex = index;
 
-        if (!this.click) {
           this.losing++;
-        }
-
-        if (this.result === 5) {
-          alert("Вы выиграли!!!");
-          this.result = 0;
-          this.losing = 0;
-        }
 
         if (this.losing === 5) {
           alert("Вы проиграли!!!");
@@ -60,13 +52,18 @@ export default class GamePlay {
 
   game() {
     this.container.addEventListener("click", (event) => {
-      this.click = true;
 
       if (event.target.classList.contains("active_cell")) {
         this.result++;
-      } else {
-        this.losing++;
+        this.losing = 0;
+      } 
+
+      if (this.result === 5) {
+        alert("Вы выиграли!!!");
+        this.result = 0;
+        this.losing = 0;
       }
+
     });
   }
 
